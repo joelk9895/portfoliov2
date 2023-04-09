@@ -9,7 +9,8 @@ var loader = new GLTFLoader();
 /* You must download your own .gltf model and reference it below.
    If you do not see it, the model may be too small, try to adjust
    the scale values below. */
-let modelUrl = "./model.glb";
+let modelUrl =
+  "https://github.com/joelk9895/portfoliov2/blob/main/model.glb";
 
 loader.load(
   modelUrl,
