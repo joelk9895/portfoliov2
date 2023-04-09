@@ -10,6 +10,7 @@
 		"threeasy": "^0.1.13"
 	},
 	"devDependencies": {
+		"rollup-plugin-css-only": "^4.3.0",
 		"vite": "^2.7.2"
 	}
 }
