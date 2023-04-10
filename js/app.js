@@ -19,10 +19,10 @@ loader.load(
     gltf.scene.scale.y = 0.009;
     gltf.scene.scale.z = 0.009;
 
-    gltf.scene.rotation.x = 0;
+    gltf.scene.rotation.x = 0.1;
     gltf.scene.rotation.y = 0;
     gltf.scene.rotation.z = 0;
-
+    gltf.scene.position.y = 0.1;
     app.scene.add(gltf.scene);
 
     window.addEventListener("scroll", onScroll);
@@ -30,6 +30,7 @@ loader.load(
     function onScroll() {
       const scrollY = window.scrollY;
       const rotationSpeed = 0.001;
+      gltf.scene.position.y = 0;
       gltf.scene.rotation.x = scrollY * 0.0034;
       gltf.scene.rotation.y = scrollY * rotationSpeed;
     }
@@ -51,3 +52,29 @@ const light4 = new THREE.DirectionalLight(0xffffff, 10);
 light2.position.set(0, 0, 40);
 
 app.scene.add(light, light2, light3, light4);
+
+let offset = 1.2;
+window.addEventListener("scroll", (e) => {
+  const scrollTop = Math.max(
+    window.pageYOffset,
+    document.documentElement.scrollTop,
+    document.body.scrollTop
+  );
+  const currentScrollY = scrollTop;
+  const isDownScroll = oldScrollY >= currentScrollY;
+  let diff = Math.floor(oldScrollY - currentScrollY) * offset;
+  let direction = 90;
+
+  if (isDownScroll) {
+    diff *= -1;
+    direction *= -1;
+  }
+  applyRgbShader(diff, direction);
+});
+const applyRgbShader = (value, direction = 90) => {
+  planeGeometries.map((card) => {
+    const material = card.material;
+    material.uniforms.amount.value = value / 300.0;
+    material.uniforms.angle.value = direction * (Math.PI / 180);
+  });
+};
