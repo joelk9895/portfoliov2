@@ -2,8 +2,6 @@
 
 body {
   background: black;
-  background-size: 0 0;
-  border-radius: 30px;
   color: black;
   overscroll-behavior: none;
   height: 100%;
@@ -12,12 +10,18 @@ body {
   z-index: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
-  padding: 0;
+  padding: 10px;
   width: 100%;
+
   position: sticky;
   top: 0;
   left: 0;
+}
+body::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: 0;
 }
 * {
   margin: 0;
@@ -139,10 +143,9 @@ body {
   position: relative;
   z-index: -200;
   height: fit-content;
-  width: 60%;
+  width: 90%;
   margin: 0;
   gap: 4em;
-  padding: 4em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -166,7 +169,6 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: end;
-  max-width: 100%;
   height: fit-content;
   border-radius: 30px;
   z-index: 1;
@@ -307,7 +309,7 @@ canvas {
 }
 @media screen and (max-width: 600px) {
   .background {
-    min-width: 100%;
+    width: 102vw;
   }
   .background h1 {
     font-size: 20vw;
@@ -318,13 +320,13 @@ canvas {
     visibility: hidden;
   }
   .container h2 {
-    font-size: 7.5vh;
-    width: 60%;
+    font-size: 3.5rem;
+    width: 100%;
     text-align: start;
   }
   .container p {
-    width: 60%;
-    font-size: 6vh;
+    width: 100%;
+    font-size: 2.5rem;
     color: white;
     padding: 20px;
     border-radius: 30px;
@@ -337,6 +339,6 @@ canvas {
   }
   .quote {
     height: 100vh;
-    width: 100%;
+    width: 106vw;
   }
 }
