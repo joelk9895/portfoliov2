@@ -10,11 +10,10 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   z-index: 1;
   display: flex;
-  align-items: center;
+  justify-content: center;
   flex-direction: column;
   padding: 0;
-  width: 100vw;
-  overflow-x: hidden;
+  width: 100%;
 }
 * {
   margin: 0;
@@ -25,7 +24,6 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
   height: 95vh;
   background: white;
   display: flex;
@@ -34,17 +32,18 @@ body {
   padding-top: 30px;
   border-radius: 40px;
   z-index: -100;
+  width: 100%;
 }
 .background h1 {
   text-transform: uppercase;
   font-size: 15vw;
   color: #212121;
   height: fit-content;
-  width: 100vw;
+  width: 100%;
   padding: 20px;
   border-radius: 10px;
   text-align: start;
-  margin-left: 10vw;
+  margin-left: 10%;
 }
 .marquee {
   font-size: 3rem;
@@ -68,7 +67,7 @@ body {
 
 .quote {
   height: 99vh;
-  width: 100vw;
+  width: 100%;
   color: aliceblue;
   z-index: -10;
   background: #212121;
@@ -84,7 +83,7 @@ body {
   text-align: center;
   padding: 2em 0;
   font-size: 8vw;
-  width: 80vw;
+  width: 80%;
   z-index: 100;
 }
 .cursor {
@@ -133,7 +132,7 @@ body {
 }
 section {
   height: 90vh;
-  width: 100vw;
+  width: 100%;
   z-index: -300;
   background-color: white;
   border-radius: 30px;
@@ -143,7 +142,7 @@ section {
   position: relative;
   z-index: -200;
   height: fit-content;
-  width: 50%;
+  width: 60%;
   margin: 0;
   gap: 4em;
   padding: 4em;
@@ -154,28 +153,28 @@ section {
 .container h2 {
   font-size: 10vh;
   color: peachpuff;
-  width: 40vw;
+  width: 60%;
   text-align: start;
 }
 .container p {
-  width: 40vw;
+  width: 60%;
   font-size: 6vh;
   color: white;
   font-weight: 500;
   padding: 20px;
   border-radius: 30px;
-  z-index: 100;
+  z-index: -100;
 }
 .links {
   display: flex;
   justify-content: space-evenly;
   align-items: end;
-  max-width: 100vw;
+  max-width: 100%;
   height: fit-content;
   border-radius: 30px;
   z-index: 1;
   background: black;
-  width: 100vw;
+  width: 100%;
   -moz-border-radius: 0px;
   -webkit-border-radius: 50px 50px 0px 0px;
   border-radius: 50px 50px 0px 0px;
@@ -243,7 +242,7 @@ section {
   padding: 20px;
   border-radius: 10px;
   text-align: start;
-  margin-left: 10vw;
+  margin-left: 10%;
 }
 #loading {
   position: fixed;
@@ -270,8 +269,8 @@ section {
   left: 0;
   margin: 0;
   color: #212121;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   z-index: -100;
   display: flex;
   justify-content: center;
@@ -292,7 +291,7 @@ section {
 canvas {
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   z-index: -100;
 } /*# sourceMappingURL=main.css.map */
 .line {
@@ -310,9 +309,12 @@ canvas {
   margin: 0;
 }
 @media screen and (max-width: 600px) {
+  .background {
+    min-width: 100%;
+  }
   .background h1 {
     font-size: 20vw;
-    width: 100vw;
+    width: 100%;
     text-align: start;
   }
   .background-overlay {
@@ -320,11 +322,11 @@ canvas {
   }
   .container h2 {
     font-size: 7.5vh;
-    width: 90vw;
+    width: 60%;
     text-align: start;
   }
   .container p {
-    width: 90vw;
+    width: 60%;
     font-size: 6vh;
     color: white;
     padding: 20px;
@@ -337,6 +339,7 @@ canvas {
     font-size: 4rem;
   }
   .quote {
-    top: 60px;
+    height: 100vh;
+    width: 100%;
   }
 }

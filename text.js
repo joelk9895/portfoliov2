@@ -11,7 +11,6 @@ runSplit();
 window.addEventListener("load", function () {});
 window.addEventListener("resize", function () {
   text.revert();
-  window.location.reload();
   runSplit();
 });
 const titles = gsap.utils.toArray(".marquee");
