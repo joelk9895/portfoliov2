@@ -24,8 +24,13 @@ loader.load(
     var rotatey = 0;
     var scrollY = 0;
     if (window.innerWidth < 600) {
-      xpos = 1.1;
-      gltf.scene.position.x = xpos;
+      xpos = 1;
+      gltf.scene.scale.x = 0.04;
+      gltf.scene.scale.y = 0.04;
+      gltf.scene.scale.z = 0.04;
+      gltf.scene.position.x = 0.5;
+      gltf.scene.position.y = 0.8;
+      gltf.scene.rotation.x = 0.6;
       gltf.scene.rotation.y = -0.1;
     } else {
       xpos = window.innerWidth * 0.001;
@@ -33,7 +38,6 @@ loader.load(
       gltf.scene.position.x = xpos;
     }
 
-    gltf.scene.rotation.x = 0;
     gltf.scene.rotation.z = 0;
     app.scene.add(gltf.scene);
 
@@ -66,11 +70,12 @@ loader.load(
       scrollY = window.scrollY;
       const rotationSpeed = 0.0001;
       if (window.innerWidth < 600) {
-        xpos = 1.1;
-        gltf.scene.rotation.y = -0.1;
+        xpos = 0.5;
+
         gltf.scene.position.x = xpos;
-        gltf.scene.rotation.x = scrollY * 0.00004;
-        gltf.scene.rotation.z = -scrollY * rotationSpeed;
+        gltf.scene.rotation.x = 0.6 + scrollY * 0.00004;
+        gltf.scene.position.y = 0.8 - scrollY * 0.0004;
+        gltf.scene.rotation.z = scrollY * rotationSpeed;
       } else {
         xpos = window.innerWidth * 0.001;
         gltf.scene.position.x = xpos;
@@ -98,29 +103,4 @@ light4.position.set(0, 0, 4);
 
 app.scene.add(light, light2, light3, light4);
 
-let offset = 1.2;
-window.addEventListener("scroll", (e) => {
-  const scrollTop = Math.max(
-    window.pageYOffset,
-    document.documentElement.scrollTop,
-    document.body.scrollTop
-  );
-  const currentScrollY = scrollTop;
-  const isDownScroll = oldScrollY >= currentScrollY;
-  let diff = Math.floor(oldScrollY - currentScrollY) * offset;
-  let direction = 90;
-
-  if (isDownScroll) {
-    diff *= -1;
-    direction *= -1;
-  }
-  applyRgbShader(diff, direction);
-});
-const applyRgbShader = (value, direction = 90) => {
-  planeGeometries.map((card) => {
-    const material = card.material;
-    material.uniforms.amount.value = value / 300.0;
-    material.uniforms.angle.value = direction * (Math.PI / 180);
-  });
-};
 //#a162e8 50%,#f093b0 70%,#edca85
